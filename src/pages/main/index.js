@@ -1,30 +1,44 @@
 "use Client";
 import React, { useEffect, useState } from "react";
 import Searchbar from "@/components/Searchbar";
-import { useDispatch, useSelector } from "react-redux";
-import { searchSelectors, showPokemon } from "./showPokemonSlice";
+import axios from "axios";
 
 const Main = () => {
-  const dispatch = useDispatch();
-  const data = useSelector(searchSelectors.getPokemon);
-  const loading = useSelector(searchSelectors.loading);
-
-  const [filteredData, setFilteredData] = useState(data);
-
-  dispatch(showPokemon());
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    console.log(filteredData)
-  }, [filteredData]);
+    const APIBase = "https://pokeapi.co/api/v2/";
+    const fetchPokemon = async () => {
+      try {
+        const response = await axios.get(APIBase + "pokemon?limit=1008");
+        const results = response.data.results;
+        setData(results);
+        setFilteredData(results);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchPokemon();
+  }, []);
 
   const handleFilter = (payload) => {
-    setFilteredData(data.filter((pokemon) => pokemon.name.includes(payload)));
+    setFilteredData(
+      data.filter((pokemon) => {
+        return pokemon.name.startsWith(payload);
+      })
+    );
   };
 
   return (
     <div>
       <Searchbar handleFilter={handleFilter} />
-      <div></div>
+      <ul>
+        {filteredData.map((datum) => (
+          <li key={datum.url}>{datum.name}</li>
+        ))}
+      </ul>
     </div>
   );
 };
