@@ -1,23 +1,23 @@
 "use Client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
 import Searchbar from "@/components/Searchbar";
 import axios from "axios";
-import DisplayPokemon from "./components/DisplayPokemon";
-import DisplayPokemonSub from "./components/DisplayPokemonSub";
+import PokemonDisplay from "./components/PokemonDisplay";
+import styles from "./styles/main.module.css";
+
+const APIBase = "https://pokeapi.co/api/v2/";
 
 const Main = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const recordsPerPage = 5;
+  const recordsPerPage = 6;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const entries = filteredData.slice(firstIndex, lastIndex);
   const numberOfPages = Math.ceil(filteredData.length / recordsPerPage);
-  //   const pageIndex = [...Array(npage + 1).keys()].slice(1);
 
-  const APIBase = "https://pokeapi.co/api/v2/";
   const fetchPokemon = () => {
     axios
       .get(APIBase + "pokemon?limit=1008")
@@ -62,22 +62,58 @@ const Main = () => {
   };
 
   return (
-    <div>
-      <Searchbar handleFilter={handleFilter} />
-      <ul>
-        {entries.map((entry) => {
-          // const index = Number(entry.url.slice(34, -1));
-
-          // return <li key={index}>{index}. {entry.name}</li>;
-          return (
-            // <DisplayPokemon key={entry.url} name={entry.name} url={entry.url} />
-            <DisplayPokemonSub key={entry.url} name={entry.name} url={entry.url} />
-          );
-        })}
-      </ul>
-      <div>
-        <button onClick={handleClickPrev}>Prev</button>
-        <button onClick={handleClickNext}>Next</button>
+    <div className="container" s>
+      <div className={styles.header}>
+        <Searchbar handleFilter={handleFilter} />
+      </div>
+      <div className={styles.content}>
+        <ul>
+          {entries.map((entry) => {
+            return (
+              <PokemonDisplay
+                key={entry.url}
+                name={entry.name}
+                url={entry.url}
+              />
+            );
+          })}
+        </ul>
+        <div className={styles.navButton}>
+          <button
+            className={
+              currentPage === 1 || numberOfPages === 0
+                ? styles.inactive
+                : styles.prev
+            }
+            onClick={handleClickPrev}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="48"
+              viewBox="0 -960 960 960"
+              width="48"
+            >
+              <path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z" />
+            </svg>
+          </button>
+          <button
+            className={
+              currentPage === numberOfPages || numberOfPages === 0
+                ? styles.inactive
+                : styles.next
+            }
+            onClick={handleClickNext}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="48"
+              viewBox="0 -960 960 960"
+              width="48"
+            >
+              <path d="m304-82-56-57 343-343-343-343 56-57 400 400L304-82Z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );

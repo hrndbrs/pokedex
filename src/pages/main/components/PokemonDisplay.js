@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { store } from "@/pages/store";
 import axios from "axios";
 
-export default class DisplayPokemonSub extends Component {
+export default class PokemonDisplay extends Component {
   constructor() {
     super();
 
@@ -12,9 +13,10 @@ export default class DisplayPokemonSub extends Component {
 
   componentDidMount() {
     const APIBase = "https://pokeapi.co/api/v2/";
+    const { name } = this.props;
 
     axios
-      .get(APIBase + "pokemon/" + this.props.name)
+      .get(APIBase + "pokemon/" + name)
       .then((response) => response.data.sprites.front_default)
       .then((res) => {
         this.setState(() => {
@@ -25,16 +27,17 @@ export default class DisplayPokemonSub extends Component {
   }
 
   render() {
-    const index = this.props.url.slice(34, -1);
-    const pokemonName =
-      this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1);
+    const { name, url } = this.props;
+    const { imageURL } = this.state;
+    // const index = url.slice(34, -1);
+    const pokemonName = name.charAt(0).toUpperCase() + name.slice(1);
 
     return (
       <li>
         <a href={"/pokemon/" + name}>
-          <img alt={pokemonName} src={this.state.imageURL} />
+          <img alt={pokemonName} src={imageURL} />
           <h3>
-            {index}. {pokemonName}
+            {pokemonName}
           </h3>
         </a>
       </li>
