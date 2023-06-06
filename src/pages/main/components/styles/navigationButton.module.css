@@ -1,0 +1,25 @@
+.navButton button {
+    position: absolute;
+    top: 50%;
+    background-color: transparent;
+    filter: invert(0.1);
+    border: none;
+  }
+  
+  .navButton button.next {
+    right: 16px;
+  }
+  
+  .navButton button.prev {
+    left: 16px;
+  }
+  
+  .navButton button.next:hover,
+  .navButton button.prev:hover {
+    filter: invert(0.5);
+  }
+  
+  .navButton button.inactive {
+    display: none;
+  }
+  

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { store } from "@/pages/store";
 import axios from "axios";
+import styles from './styles/pokemonDisplay.module.css'
 
 export default class PokemonDisplay extends Component {
   constructor() {
