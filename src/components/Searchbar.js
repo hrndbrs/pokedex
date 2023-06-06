@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 const Searchbar = ({ handleFilter }) => {
-  const [searchTerm, setSearchTerm] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
     <div>
@@ -13,7 +13,7 @@ const Searchbar = ({ handleFilter }) => {
         }}
       >
         <input
-          placeholder="Search a pokemon"
+          placeholder="Search a Pokemon"
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}
