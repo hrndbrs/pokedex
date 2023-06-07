@@ -1,76 +1,76 @@
-const type = [
+const types = [
   {
     name: "normal",
-    image: "",
+    image: "/logos/typing-logo-1/normal.svg",
   },
   {
     name: "fire",
-    image: "",
+    image: "/logos/typing-logo-1/fire.svg",
   },
   {
     name: "water",
-    image: "",
+    image: "/logos/typing-logo-1/water.svg",
   },
   {
     name: "electric",
-    image: "",
+    image: "/logos/typing-logo-1/electric.svg",
   },
   {
     name: "grass",
-    image: "",
+    image: "/logos/typing-logo-1/grass.svg",
   },
   {
     name: "ice",
-    image: "",
+    image: "/logos/typing-logo-1/ice.svg",
   },
   {
     name: "fighting",
-    image: "",
+    image: "/logos/typing-logo-1/fighting.svg",
   },
   {
     name: "poison",
-    image: "",
+    image: "/logos/typing-logo-1/poison.svg",
   },
   {
     name: "ground",
-    image: "",
+    image: "/logos/typing-logo-1/ground.svg",
   },
   {
     name: "flying",
-    image: "",
+    image: "/logos/typing-logo-1/flying.svg",
   },
   {
     name: "psychic",
-    image: "",
+    image: "/logos/typing-logo-1/psychic.svg",
   },
   {
     name: "bug",
-    image: "",
+    image: "/logos/typing-logo-1/bug.svg",
   },
   {
     name: "rock",
-    image: "",
+    image: "/logos/typing-logo-1/rock.svg",
   },
   {
     name: "ghost",
-    image: "",
+    image: "/logos/typing-logo-1/ghost.svg",
   },
   {
     name: "dragon",
-    image: "",
+    image: "/logos/typing-logo-1/dragon.svg",
   },
   {
     name: "dark",
-    image: "",
+    image: "/logos/typing-logo-1/dark.svg",
   },
   {
     name: "steel",
-    image: "",
+    image: "/logos/typing-logo-1/steel.svg",
   },
   {
     name: "fairy",
-    image: "",
+    image: "/logos/typing-logo-1/fairy.svg",
   },
 ];
 
-export { type };
+export { types };
