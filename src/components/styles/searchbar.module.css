@@ -10,15 +10,48 @@
   align-items: center;
 }
 
+.inputWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .inputField {
+  opacity: 0;
   height: 32px;
-  width: 30vw;
-  margin-left: 18px;
+  width: 0;
+  margin: 0;
+  padding: 0;
   background-color: transparent;
   border: none;
   outline: none;
   color: #fff;
   font-size: 1rem;
+  transition: width 0.3s ease-in-out;
+}
+
+.inputField.showInput {
+  opacity: 100%;
+  width: 28vw;
+  margin-left: 18px;
+  transition: width 0.3s ease-in-out;
+}
+
+.inputWrapper button.clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  filter: invert(0.5);
+  right: 10%;
+}
+
+.inputWrapper button.inactive {
+  display: none;
 }
 
 .search {
@@ -35,21 +68,4 @@
 .search svg {
   filter: invert(32%) sepia(22%) saturate(6141%) hue-rotate(343deg)
     brightness(110%) contrast(84%);
-}
-
-button.clear {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  filter: invert(0.5);
-  right: 10%;
-}
-
-button.inactive {
-  display: none;
 }

@@ -9,7 +9,8 @@ const Searchbar = ({ handleFilter }) => {
   const handleClick = () => {
     setShowInput(true);
   };
-  const clearSelection = () => {
+  const clearSelection = (e) => {
+    e.preventDefault();
     setSearchTerm("");
   };
   const handleBlur = () => {
@@ -31,16 +32,30 @@ const Searchbar = ({ handleFilter }) => {
   return (
     <div className={styles.searchBar} onClick={handleClick} onBlur={handleBlur}>
       <form>
-        {showInput && (
+        <div className={styles.inputWrapper}>
           <input
             type="text"
-            className={styles.inputField}
+            className={`${styles.inputField} ${showInput && styles.showInput}`}
             placeholder="Choose your Pokemon"
             value={searchTerm}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
-        )}
+          <button
+            type="button"
+            className={searchTerm.length === 0 ? styles.inactive : styles.clear}
+            onMouseDown={clearSelection}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+            </svg>
+          </button>
+        </div>
 
         <div className={styles.search}>
           <svg
@@ -57,19 +72,6 @@ const Searchbar = ({ handleFilter }) => {
             <path d="M21 21l-4.35-4.35" />
           </svg>
         </div>
-        <button
-          className={searchTerm.length === 0 ? styles.inactive : styles.clear}
-          onClick={clearSelection}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24"
-            viewBox="0 -960 960 960"
-            width="24"
-          >
-            <path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
-          </svg>
-        </button>
       </form>
     </div>
   );
