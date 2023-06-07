@@ -1,0 +1,17 @@
+.entry {
+    font-family: 'Exo', sans-serif;
+    display: flex;
+    width: 280px;
+}
+
+.entry img {
+  width: 180px;
+  height: 180px;
+}
+
+.info {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+
+}
