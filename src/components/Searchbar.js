@@ -17,40 +17,46 @@ const Searchbar = ({ handleFilter }) => {
     setSearchTerm("");
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleFilter(searchTerm);
+    }
+  };
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <div className={styles.searchBar} onClick={handleClick} onBlur={handleBlur}>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleFilter(searchTerm);
-        }}
-      >
+      <form>
         {showInput && (
           <input
+            type="text"
             className={styles.inputField}
             placeholder="Choose your Pokemon"
             value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-            }}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
           />
         )}
 
-        <button className={styles.search} type="submit" disabled={!showInput}>
+        <div className={styles.search}>
           <svg
             fill="none"
             stroke="currentColor"
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={3}
+            strokeWidth={4}
             viewBox="0 0 24 24"
-            height="36px"
-            width="36px"
+            height="24px"
+            width="24px"
           >
             <path d="M19 11 A8 8 0 0 1 11 19 A8 8 0 0 1 3 11 A8 8 0 0 1 19 11 z" />
             <path d="M21 21l-4.35-4.35" />
           </svg>
-        </button>
+        </div>
         <button
           className={searchTerm.length === 0 ? styles.inactive : styles.clear}
           onClick={clearSelection}
