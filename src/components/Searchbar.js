@@ -57,7 +57,7 @@ const Searchbar = ({ handleFilter }) => {
           </button>
         </div>
 
-        <div className={styles.search}>
+        <div className={`${styles.search} ${showInput && styles.showInput}`}>
           <svg
             fill="none"
             stroke="currentColor"

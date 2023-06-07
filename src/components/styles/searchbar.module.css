@@ -54,18 +54,41 @@
   display: none;
 }
 
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    51% {
+        transform: rotate(372deg);
+    }
+    53% {
+        transform: rotate(377deg);
+    }
+    68%{
+        transform: rotate(346deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .search.showInput svg {
+    animation: rotate 1.5s linear;
+  }
+
 .search {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #edf0f2;
   height: 38px;
   width: 38px;
   border: none;
   border-radius: 50%;
+  box-shadow: inset -4px -4px #dfdfdf;
 }
 
 .search svg {
-  filter: invert(32%) sepia(22%) saturate(6141%) hue-rotate(343deg)
-    brightness(110%) contrast(84%);
+  filter: invert(81%) sepia(50%) saturate(318%) hue-rotate(160deg)
+    brightness(93%) contrast(91%);
 }
