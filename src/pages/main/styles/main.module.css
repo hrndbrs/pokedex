@@ -6,10 +6,20 @@
     ),
     linear-gradient(127deg, rgba(197, 209, 229, 0.8), rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(336deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 70.71%);
-
     height: 100vh;
 }
 
+/* .container::after {    
+  content: "";
+  background-image: url('https://dl.airtable.com/.exploreCoverImages/5bc96e992eb75b3e452cb011840ae7a4/6cf7e370');
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.2;
+} */
 
 .header {
   display: flex;
@@ -25,7 +35,7 @@
 .content ul {
   display: grid;
   list-style-type: none;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   column-gap: 16px;
   row-gap: 12px;
 }

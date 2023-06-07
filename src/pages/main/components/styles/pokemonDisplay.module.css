@@ -1,3 +1,26 @@
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buzz {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
 .card {
   --card-width: 210px;
   --card-height: 290px;
@@ -6,8 +29,12 @@
   width: var(--card-width);
   height: var(--card-height);
   background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid #1f1f1f;
   border-radius: 16px;
+  box-shadow: 1px 1px 4px 4px rgba(31, 31, 31, 0.13);
+}
+
+.card:hover {
+  animation: buzz 0.5s infinite alternate;
 }
 
 .entry {
@@ -19,9 +46,10 @@
   height: 100%;
 }
 
-.entry img {
-  width: 200px;
-  height: 200px;
+.entry .img {
+  /* width: 200px;
+  height: 200px; */
+  animation: popIn 0.9s ease-in-out;
 }
 
 .info {

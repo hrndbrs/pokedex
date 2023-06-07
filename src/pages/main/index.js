@@ -15,7 +15,7 @@ const Main = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const recordsPerPage = 6;
+  const recordsPerPage = 8;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const entries = filteredData.slice(firstIndex, lastIndex);
@@ -23,7 +23,7 @@ const Main = () => {
 
   const fetchPokemon = () => {
     axios
-      .get(rootURL + "pokemon?limit=1008")
+      .get(rootURL + "pokemon?limit=1010")
       .then((res) => {
         const results = res.data.results;
         setData(results);

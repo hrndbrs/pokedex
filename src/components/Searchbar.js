@@ -63,7 +63,7 @@ const Searchbar = ({ handleFilter }) => {
             stroke="currentColor"
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={4}
+            strokeWidth={5}
             viewBox="0 0 24 24"
             height="24px"
             width="24px"

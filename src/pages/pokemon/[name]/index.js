@@ -7,7 +7,7 @@ const PokemonDetailPage = () => {
 
   return (
     <div>
-     
+      pokemon detail page
     </div>
   );
 };
