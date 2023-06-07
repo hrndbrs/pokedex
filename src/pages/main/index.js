@@ -6,7 +6,7 @@ import PokemonDisplay from "./components/PokemonDisplay";
 import NavigationButton from "./components/NavigationButton";
 import styles from "./styles/main.module.css";
 
-const APIBase = "https://pokeapi.co/api/v2/";
+const rootURL = process.env.NEXT_PUBLIC_API_URL;
 
 export const Context = React.createContext();
 
@@ -21,9 +21,11 @@ const Main = () => {
   const entries = filteredData.slice(firstIndex, lastIndex);
   const numberOfPages = Math.ceil(filteredData.length / recordsPerPage);
 
+  // console.log(rootURL);
+
   const fetchPokemon = () => {
     axios
-      .get(APIBase + "pokemon?limit=1008")
+      .get(rootURL + "pokemon?limit=1008")
       .then((res) => {
         const results = res.data.results;
         setData(results);

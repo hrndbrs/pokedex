@@ -1,0 +1,67 @@
+.searchBar {
+  position: relative;
+  background-color: #363b4a;
+  padding: 8px;
+  border-radius: 40px;
+}
+
+.searchBar form {
+  display: flex;
+  align-items: center;
+}
+
+/* .inputWrapper {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+} */
+
+/* .searchBar:focus-within form .inputWrapper {
+  display: block;
+  height: 32px;
+  width: 30vw;
+  transition: opacity 1s ease-in-out, visibility 0s linear;
+} */
+
+.inputField {
+  height: 32px;
+  width: 30vw;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+button.search {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  height: 38px;
+  width: 38px;
+  border: none;
+  border-radius: 50%;
+}
+
+button.search svg {
+  filter: invert(32%) sepia(22%) saturate(6141%) hue-rotate(343deg)
+    brightness(110%) contrast(84%);
+}
+
+button.clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  filter: invert(0.5);
+  right: 10%;
+}
+
+button.inactive {
+  display: none;
+}
