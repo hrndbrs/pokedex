@@ -21,8 +21,6 @@ const Main = () => {
   const entries = filteredData.slice(firstIndex, lastIndex);
   const numberOfPages = Math.ceil(filteredData.length / recordsPerPage);
 
-  // console.log(rootURL);
-
   const fetchPokemon = () => {
     axios
       .get(rootURL + "pokemon?limit=1008")
@@ -67,7 +65,7 @@ const Main = () => {
   };
 
   return (
-    <div className="container" s>
+    <div className={`container ${styles.container}`}>
       <div className={styles.header}>
         <Searchbar handleFilter={handleFilter} />
       </div>

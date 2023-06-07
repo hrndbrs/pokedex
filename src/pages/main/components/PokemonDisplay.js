@@ -10,6 +10,7 @@ export default class PokemonDisplay extends Component {
     super();
 
     this.state = {
+      name: "",
       imageURL: "",
     };
   }
@@ -19,27 +20,31 @@ export default class PokemonDisplay extends Component {
 
     axios
       .get(rootURL + "pokemon/" + name)
-      .then((response) => response.data.sprites.front_default)
-      .then((res) => {
-        this.setState(() => {
-          return { imageURL: res };
+      .then((response) => {
+        const speciesName = response.data.species.name;
+        const image = response.data.sprites.front_default;
+        // console.log(`${name} ${image}`)
+        this.setState({
+          name: speciesName,
+          imageURL: image,
         });
       })
       .catch((err) => console.error(err));
   }
 
   render() {
-    const { name, url } = this.props;
-    const { imageURL } = this.state;
+    const { url } = this.props;
+    const { name, imageURL } = this.state;
     const index = url.slice(34, -1);
+    // const pokemonName = name.replace("-", " ").toUpperCase();
     const pokemonName = name.toUpperCase();
 
     return (
-      <li className={styles.entry}>
-        <Link href={"/pokemon/" + name}>
+      <li className={styles.card}>
+        <Link className={styles.entry} href={"/pokemon/" + name}>
           <img alt={pokemonName} src={imageURL} />
           <div className={styles.info}>
-            <h5>{`No ${index}`}</h5>
+            <h4>{`No ${index}`}</h4>
             <h3>{pokemonName}</h3>
           </div>
         </Link>

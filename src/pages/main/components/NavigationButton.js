@@ -4,6 +4,7 @@ import { Context } from "../index";
 
 const NavigationButton = ({onClickNext, onClickPrev}) => {
   const { currentPage, numberOfPages } = React.useContext(Context);
+  const arrowSize = '72'
   return (
     <div className={styles.navButton}>
       <button
@@ -16,9 +17,9 @@ const NavigationButton = ({onClickNext, onClickPrev}) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          height="48"
+          height={arrowSize}
           viewBox="0 -960 960 960"
-          width="48"
+          width={arrowSize}
         >
           <path d="M400-80 0-480l400-400 56 57-343 343 343 343-56 57Z" />
         </svg>
@@ -33,9 +34,9 @@ const NavigationButton = ({onClickNext, onClickPrev}) => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          height="48"
+          height={arrowSize}
           viewBox="0 -960 960 960"
-          width="48"
+          width={arrowSize}
         >
           <path d="m304-82-56-57 343-343-343-343 56-57 400 400L304-82Z" />
         </svg>

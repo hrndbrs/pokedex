@@ -1,6 +1,20 @@
+.container {
+  background: linear-gradient(
+      217deg,
+      rgba(191, 196, 198, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(197, 209, 229, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0) 70.71%);
+
+    height: 100vh;
+}
+
+
 .header {
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
 .content {
@@ -12,4 +26,6 @@
   display: grid;
   list-style-type: none;
   grid-template-columns: auto auto auto;
+  column-gap: 16px;
+  row-gap: 12px;
 }

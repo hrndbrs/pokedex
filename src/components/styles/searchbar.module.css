@@ -32,7 +32,7 @@
 
 .inputField.showInput {
   opacity: 100%;
-  width: 28vw;
+  width: 35vw;
   margin-left: 18px;
   transition: width 0.3s ease-in-out;
 }
