@@ -3,25 +3,43 @@ import axios from "axios";
 import Link from "next/link";
 import styles from "./styles/pokemonDisplay.module.css";
 import Image from "next/image";
-import { types } from "@/assets/static";
+import { withPunct, types } from "@/assets/static";
 
 const rootURL = process.env.NEXT_PUBLIC_API_URL;
-// const imageLink = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/";
 const imageLink =
   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
 
 export function ShowType({ typeName }) {
-  const size = 28;
+  const size = 28; // 3:2
   const filteredType = types.filter((type) => {
     return type.name === typeName;
   });
-  const imagePath = filteredType[0].image;
+
+  const imagePath = filteredType[0].image2;
   return (
-    <div className={styles.type}>
+    <div className={`${styles.icon} ${typeName}`}>
       <Image src={imagePath} alt={typeName} width={size} height={size} />
     </div>
   );
 }
+
+const nameCorrection = (name) => {
+  let correctedName = name;
+
+  if (!withPunct.includes(name)) {
+    correctedName = name.replace("-", " ");
+  }
+
+  if (correctedName.includes("-m")) {
+    correctedName = correctedName.replace("-m", " ♂");
+  } else if (correctedName.includes("-f")) {
+    correctedName = correctedName.replace("-f", " ♀");
+  }
+
+  correctedName = correctedName.toUpperCase();
+
+  return correctedName;
+};
 
 export default class PokemonDisplay extends Component {
   constructor() {
@@ -39,7 +57,6 @@ export default class PokemonDisplay extends Component {
   componentDidMount() {
     const { name, url } = this.props;
     let index = url.slice(34, -1);
-
     const image = imageLink + index + ".png";
 
     if (index.length < 3) {
@@ -64,8 +81,8 @@ export default class PokemonDisplay extends Component {
 
   render() {
     const { name, index, types, imageURL, loaded } = this.state;
-    const pokemonName = name.toUpperCase();
-    const size = 216;
+    const size = 200;
+    const pokemonName = nameCorrection(name);
 
     return (
       <>

@@ -57,8 +57,10 @@ const Main = () => {
   }, []);
 
   const handleFilter = (payload) => {
+    setCurrentPage(1);
     setFilteredData(
       data.filter((pokemon) => {
+        // return pokemon.name.includes(payload.toLowerCase());
         return pokemon.name.startsWith(payload.toLowerCase());
       })
     );

@@ -1,27 +1,24 @@
 .navButton button {
-    position: absolute;
-    top: 50%;
-    background-color: transparent;
-    /* filter: invert(0.78); */
-    border: none;
-    opacity: 0.2;
-  }
-  
-  .navButton button.next {
-    right: 32px;
-  }
-  
-  .navButton button.prev {
-    left: 32px;
-  }
-  
-  .navButton button.next:hover,
-  .navButton button.prev:hover {
-    /* filter: invert(0.45); */
-    opacity: 0.34;
-  }
-  
-  .navButton button.inactive {
-    display: none;
-  }
-  
+  position: absolute;
+  top: 50%;
+  background-color: transparent;
+  border: none;
+  opacity: 0.2;
+}
+
+.navButton button.next {
+  right: 32px;
+}
+
+.navButton button.prev {
+  left: 32px;
+}
+
+.navButton button.next:hover,
+.navButton button.prev:hover {
+  opacity: 0.34;
+}
+
+.navButton button.inactive {
+  display: none;
+}

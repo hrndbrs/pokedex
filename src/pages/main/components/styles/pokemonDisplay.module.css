@@ -62,9 +62,20 @@
   align-items: center;
   top: 0;
   right: 0;
+  column-gap: 12px;
 }
 
-.type {
+.typeLogos .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  height: 42px;
+  width: 42px;
+  animation: fadeIn 0.9s ease-in-out;
+}
+
+/* .type {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +83,7 @@
   animation: fadeIn 0.9s ease-in-out;
   width: 42px;
   height: 42px;
-}
+} */
 
 .entry .img {
   animation: popIn 0.9s ease-in-out;
@@ -84,3 +95,5 @@
   width: 100%;
   animation: fadeIn 0.9s ease-in-out;
 }
+
+
