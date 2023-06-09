@@ -4,7 +4,7 @@ import Searchbar from "@/components/Searchbar";
 import axios from "axios";
 import PokemonDisplay from "./components/PokemonDisplay";
 import NavigationButton from "./components/NavigationButton";
-import styles from "./styles/main.module.css";
+import styles from "./styles/Main.module.css";
 
 const rootURL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -34,17 +34,6 @@ const Main = () => {
       });
   };
 
-  //   const fetchPokemon = async () => {
-  //     try {
-  //       const response = await axios.get(APIBase + "pokemon?limit=1008");
-  //       const results = response.data.results;
-  //       setData(results);
-  //       setFilteredData(results);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-
   const handleClickPrev = () => {
     if (currentPage !== 1) setCurrentPage((state) => state - 1);
   };
@@ -68,25 +57,21 @@ const Main = () => {
 
   return (
     <div className={`container ${styles.container}`}>
-      <div className={styles.header}>
+      <section className={styles.header}>
         <Searchbar handleFilter={handleFilter} />
-      </div>
-      <div className={styles.content}>
+      </section>
+      <section className={styles.content}>
         <ul>
           {entries.map((entry) => {
-            return (
-              <PokemonDisplay
-                key={entry.url}
-                name={entry.name}
-                url={entry.url}
-              />
-            );
+            const { name } = entry;
+
+            return <PokemonDisplay key={`display ${name}`} name={name} />;
           })}
         </ul>
         <Context.Provider
           value={{
-            currentPage: currentPage,
-            numberOfPages: numberOfPages,
+            currentPage,
+            numberOfPages,
           }}
         >
           <NavigationButton
@@ -94,7 +79,7 @@ const Main = () => {
             onClickPrev={handleClickPrev}
           />
         </Context.Provider>
-      </div>
+      </section>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/navigationButton.module.css";
+import styles from "./styles/NavigationButton.module.css";
 import { Context } from "../index";
 
 const NavigationButton = ({onClickNext, onClickPrev}) => {

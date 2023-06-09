@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "./styles/searchbar.module.css";
+import styles from "./styles/SearchBar.module.css";
 
 const Searchbar = ({ handleFilter }) => {
   const [showInput, setShowInput] = useState(false);

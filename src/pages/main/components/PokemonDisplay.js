@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Link from "next/link";
-import styles from "./styles/pokemonDisplay.module.css";
 import Image from "next/image";
+import styles from "./styles/PokemonDisplay.module.css";
 import { withPunct, types } from "@/assets/static";
 
 const rootURL = process.env.NEXT_PUBLIC_API_URL;
@@ -55,24 +55,30 @@ export default class PokemonDisplay extends Component {
   }
 
   componentDidMount() {
-    const { name, url } = this.props;
-    let index = url.slice(34, -1);
-    const image = imageLink + index + ".png";
-
-    if (index.length < 3) {
-      for (let i = 0; i <= 3 - index.length; i++) {
-        index = "0" + index;
-      }
-    }
+    const { name } = this.props;
+    // let index = url.slice(34, -1);
 
     axios
       .get(rootURL + "pokemon/" + name)
       .then((response) => {
-        this.setState({
-          name: response.data.species.name,
-          index: index,
-          imageURL: image,
-          types: response.data.types,
+        this.setState(() => {
+          const { species, id, types } = response.data;
+          const image = imageLink + id.toString() + ".png";
+          let index = id.toString();
+
+          if (index.length < 4) {
+            const length = index.length;
+            for (let i = 0; i < 4 - length; i++) {
+              index = "0" + index;
+            }
+          }
+
+          return {
+            name: species.name,
+            index,
+            imageURL: image,
+            types,
+          };
         });
       })
       .then(() => this.setState({ loaded: true }))
@@ -91,11 +97,12 @@ export default class PokemonDisplay extends Component {
             <Link className={styles.entry} href={"/pokemon/" + name}>
               <div className={styles.typeLogos}>
                 {types.map((type) => {
+                  const { name } = type.type
                   return (
                     <ShowType
-                      key={pokemonName}
-                      typeName={type.type.name}
-                    ></ShowType>
+                      key={`${pokemonName} : ${name}`}
+                      typeName={name}
+                    />
                   );
                 })}
               </div>
@@ -107,7 +114,7 @@ export default class PokemonDisplay extends Component {
                 height={size}
               />
               <div className={styles.info}>
-                <h4>{`No ${index}`}</h4>
+                <h4>{`No. ${index}`}</h4>
                 <h3>{pokemonName}</h3>
               </div>
             </Link>
