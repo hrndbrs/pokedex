@@ -34,6 +34,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const name = context.params.name;
+  let id;
   // const requests = [
   //   fetch(rootURL + "pokemon/" + name),
   //   fetch(rootURL + "pokemon-species/" + name),
@@ -52,13 +53,16 @@ export const getStaticProps = async (context) => {
   // .catch((e) => console.log("fetch was unsuccessful" + e));
   const data = await axios
     .get(rootURL + "pokemon/" + name)
-    .then((res) => res.data)
+    .then((res) => {
+      id = res.data.id;
+      return res.data;
+    })
     .catch((err) => {
       console.error(err);
     });
 
   const species = await axios
-    .get(rootURL + "pokemon-species/" + name)
+    .get(rootURL + "pokemon-species/" + id)
     .then((res) => {
       return res.data;
     })
@@ -68,8 +72,6 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      // pokemon: data1,
-      // additional: data2,
       data,
       species,
     },
@@ -100,7 +102,7 @@ const PokemonDetailPage = ({ data, species }) => {
   ]);
 
   const adjacentSpriteSize = 84;
-  const mainImageSize = 400;
+  const mainImageSize = 480;
   const spriteSize = 144;
 
   const resetAdjPokemon = (payload) => {
@@ -162,9 +164,8 @@ const PokemonDetailPage = ({ data, species }) => {
     if (id !== 1010) {
       fetchAdjPokemon(1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name]);
-
-  console.log(adjacentPokemon);
 
   return (
     <div>
@@ -192,24 +193,26 @@ const PokemonDetailPage = ({ data, species }) => {
       </section>
 
       <section>
-        {adjacentPokemon.map((entry, index) => {
-          if (index === 0) index = -1;
-          switch (entry.name) {
-            case false:
-              return <></>;
-            default:
-              return (
-                <NavigatePage
-                  key={entry.id}
-                  id={index}
-                  name={entry.name}
-                  sprite={entry.sprite}
-                  size={adjacentSpriteSize}
-                  onClick={resetAdjPokemon}
-                />
-              );
-          }
-        })}
+        <div>
+          {adjacentPokemon.map((entry, index) => {
+            if (index === 0) index = -1;
+            switch (entry.name) {
+              case false:
+                return <></>;
+              default:
+                return (
+                  <NavigatePage
+                    key={entry.id}
+                    id={index}
+                    name={entry.name}
+                    sprite={entry.sprite}
+                    size={adjacentSpriteSize}
+                    onClick={resetAdjPokemon}
+                  />
+                );
+            }
+          })}
+        </div>
         <p>{info.description}</p>
       </section>
     </div>
@@ -219,15 +222,21 @@ const PokemonDetailPage = ({ data, species }) => {
 export const NavigatePage = ({ id, name, sprite, size, onClick }) => {
   return (
     <Link
-      className={id === 0 ? styles.prev : styles.next}
+      className={id === -1 ? styles.prev : styles.next}
       href={`/pokemon/${name}`}
       onClick={() => {
         onClick(id);
       }}
     >
-      {/* <Image src="/logos/pokeball-02.svg" width="60" height="60" alt="pokeball"> */}
-      <Image src={sprite} alt={name} width={size} height={size} />
-      {/* </Image> */}
+      <div className={styles.navArrow}>
+        <Image
+          className={styles.navImage}
+          src={sprite}
+          alt={name}
+          width={size}
+          height={size}
+        />
+      </div>
     </Link>
   );
 };

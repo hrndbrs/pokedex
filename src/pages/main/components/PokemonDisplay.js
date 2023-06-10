@@ -56,7 +56,6 @@ export default class PokemonDisplay extends Component {
 
   componentDidMount() {
     const { name } = this.props;
-    // let index = url.slice(34, -1);
 
     axios
       .get(rootURL + "pokemon/" + name)

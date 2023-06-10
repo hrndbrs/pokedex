@@ -1,11 +1,38 @@
 * {
   margin: 0;
   padding: 0;
-  --type-logo-shadow : 30px;
-  }
+  --type-logo-shadow: 30px;
+}
 
 html {
-  background-color: #fbfbf9;
+  background: linear-gradient(
+      216.34deg,
+      rgba(0, 0, 0, 0) -5.08%,
+      rgba(141, 153, 175, 0.05) 77.77%
+    ),
+    linear-gradient(
+      10.22deg,
+      rgba(237, 242, 245, 0.304) 2.23%,
+      rgba(237, 242, 245, 0) 28.66%
+    ),
+    radial-gradient(
+      81.54% 98.82% at -17.61% 32.17%,
+      rgba(222, 58, 93, 0.52) 1.47%,
+      rgba(255, 0, 0, 0) 72.77%
+    ),
+    radial-gradient(
+      138.12% 141.17% at 38.66% 0%,
+      rgba(43, 46, 65, 0.72) 18.23%,
+      rgba(141, 153, 175, 0) 100%
+    ),
+    linear-gradient(
+      307.36deg,
+      rgba(222, 58, 93, 0.54) -2.17%,
+      rgba(217, 246, 250, 0.0702) 76.82%
+    );
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a {
@@ -14,8 +41,8 @@ a {
 }
 
 .bug {
-  background: #92BC2C;
-  box-shadow: 0 0 var(--type-logo-shadow) #92BC2C;
+  background: #92bc2c;
+  box-shadow: 0 0 var(--type-logo-shadow) #92bc2c;
 }
 
 .dark {
@@ -24,81 +51,81 @@ a {
 }
 
 .dragon {
-  background: #0C69C8;
-  box-shadow: 0 0 var(--type-logo-shadow) #0C69C8;
+  background: #0c69c8;
+  box-shadow: 0 0 var(--type-logo-shadow) #0c69c8;
 }
 
 .electric {
-  background: #F2D94E;
-  box-shadow: 0 0 var(--type-logo-shadow) #F2D94E;
+  background: #f2d94e;
+  box-shadow: 0 0 var(--type-logo-shadow) #f2d94e;
 }
 
 .fire {
-  background: #FBA54C;
-  box-shadow: 0 0 var(--type-logo-shadow) #FBA54C;
+  background: #fba54c;
+  box-shadow: 0 0 var(--type-logo-shadow) #fba54c;
 }
 
 .fairy {
-  background: #EE90E6;
-  box-shadow: 0 0 var(--type-logo-shadow) #EE90E6;
+  background: #ee90e6;
+  box-shadow: 0 0 var(--type-logo-shadow) #ee90e6;
 }
 
 .fighting {
-  background: #D3425F;
-  box-shadow: 0 0 var(--type-logo-shadow) #D3425F;
+  background: #d3425f;
+  box-shadow: 0 0 var(--type-logo-shadow) #d3425f;
 }
 
 .flying {
-  background: #A1BBEC;
-  box-shadow: 0 0 var(--type-logo-shadow) #A1BBEC;
+  background: #a1bbec;
+  box-shadow: 0 0 var(--type-logo-shadow) #a1bbec;
 }
 
 .ghost {
-  background: #5F6DBC;
-  box-shadow: 0 0 var(--type-logo-shadow) #5F6DBC;
+  background: #5f6dbc;
+  box-shadow: 0 0 var(--type-logo-shadow) #5f6dbc;
 }
 
 .grass {
-  background: #5FBD58;
-  box-shadow: 0 0 var(--type-logo-shadow) #5FBD58;
+  background: #5fbd58;
+  box-shadow: 0 0 var(--type-logo-shadow) #5fbd58;
 }
 
 .ground {
-  background: #DA7C4D;
-  box-shadow: 0 0 var(--type-logo-shadow) #DA7C4D;
+  background: #da7c4d;
+  box-shadow: 0 0 var(--type-logo-shadow) #da7c4d;
 }
 
 .ice {
-  background: #75D0C1;
-  box-shadow: 0 0 var(--type-logo-shadow) #75D0C1;
+  background: #75d0c1;
+  box-shadow: 0 0 var(--type-logo-shadow) #75d0c1;
 }
 
 .normal {
-  background: #A0A29F;
-  box-shadow: 0 0 var(--type-logo-shadow) #A0A29F;
+  background: #a0a29f;
+  box-shadow: 0 0 var(--type-logo-shadow) #a0a29f;
 }
 
 .poison {
-  background: #B763CF;
-  box-shadow: 0 0 var(--type-logo-shadow) #B763CF;
+  background: #b763cf;
+  box-shadow: 0 0 var(--type-logo-shadow) #b763cf;
 }
 
 .psychic {
-  background: #FA8581;
-  box-shadow: 0 0 var(--type-logo-shadow) #FA8581;
+  background: #fa8581;
+  box-shadow: 0 0 var(--type-logo-shadow) #fa8581;
 }
 
 .rock {
-  background: #C9BB8A;
-  box-shadow: 0 0 var(--type-logo-shadow) #C9BB8A;
+  background: #c9bb8a;
+  box-shadow: 0 0 var(--type-logo-shadow) #c9bb8a;
 }
 
 .steel {
-  background: #5695A3;
-  box-shadow: 0 0 var(--type-logo-shadow) #5695A3;
+  background: #5695a3;
+  box-shadow: 0 0 var(--type-logo-shadow) #5695a3;
 }
 
 .water {
-  background: #539DDF;
-  box-shadow: 0 0 var(--type-logo-shadow) #539DDF;
+  background: #539ddf;
+  box-shadow: 0 0 var(--type-logo-shadow) #539ddf;
 }

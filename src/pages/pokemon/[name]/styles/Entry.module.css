@@ -1,0 +1,30 @@
+.next .navArrow {
+  background-image: url("/logos/pokeball-arrow-right.svg");
+}
+
+.prev .navArrow {
+  background-image: url("/logos/pokeball-arrow-left.svg");
+}
+
+.navArrow {
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100px;
+  height: 100px;
+  overflow: visible;
+}
+
+.next .navImage {
+  left: 2px;
+}
+
+.prev .navImage{
+    right: -4px;
+}
+
+.navImage {
+  position: absolute;
+  top: -10px;
+}

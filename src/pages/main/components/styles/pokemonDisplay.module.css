@@ -34,6 +34,9 @@
   --card-width: 210px;
   --card-height: 290px;
   font-family: "Exo", sans-serif;
+  background-image: url("/logos/pokeball-03.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
   padding: 24px;
   width: var(--card-width);
   height: var(--card-height);
@@ -74,16 +77,6 @@
   width: 42px;
   animation: fadeIn 0.9s ease-in-out;
 }
-
-/* .type {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.17)); 
-  animation: fadeIn 0.9s ease-in-out;
-  width: 42px;
-  height: 42px;
-} */
 
 .entry .img {
   animation: popIn 0.9s ease-in-out;
