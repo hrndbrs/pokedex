@@ -96,7 +96,7 @@ export default class PokemonDisplay extends Component {
             <Link className={styles.entry} href={"/pokemon/" + name}>
               <div className={styles.typeLogos}>
                 {types.map((type) => {
-                  const { name } = type.type
+                  const { name } = type.type;
                   return (
                     <ShowType
                       key={`${pokemonName} : ${name}`}
@@ -111,6 +111,13 @@ export default class PokemonDisplay extends Component {
                 src={imageURL}
                 width={size}
                 height={size}
+              />
+              <Image
+                className={styles.pokeball}
+                alt="pokeball"
+                src="/logos/pokeball-03.svg"
+                width={920}
+                height={920}
               />
               <div className={styles.info}>
                 <h4>{`No. ${index}`}</h4>

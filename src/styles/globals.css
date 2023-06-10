@@ -5,7 +5,7 @@
 }
 
 html {
-  background: linear-gradient(
+  /* background: linear-gradient(
       216.34deg,
       rgba(0, 0, 0, 0) -5.08%,
       rgba(141, 153, 175, 0.05) 77.77%
@@ -29,8 +29,26 @@ html {
       307.36deg,
       rgba(222, 58, 93, 0.54) -2.17%,
       rgba(217, 246, 250, 0.0702) 76.82%
-    );
-
+    ); */
+  font-family: "Exo", sans-serif;
+  background: linear-gradient(
+      7.34deg,
+      rgba(0, 0, 0, 0) 61.72%,
+      rgba(141, 153, 175, 0.05) 89.2%
+    ),
+    linear-gradient(
+      9.9deg,
+      rgba(237, 242, 245, 0.22) 2.18%,
+      rgba(237, 242, 245, 0) 28.02%
+    ),
+    linear-gradient(169.78deg, #bbbbbb -21.1%, rgba(159, 183, 196, 0) 66.53%),
+    linear-gradient(
+      217.25deg,
+      #a6a6a6 15.83%,
+      rgba(141, 153, 175, 0) 98.22%,
+      #a6a6a6 115.42%
+    ),
+    linear-gradient(17.15deg, #676767 -23.04%, rgba(211, 228, 231, 0) 29.01%);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }

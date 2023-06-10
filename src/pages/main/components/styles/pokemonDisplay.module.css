@@ -33,20 +33,46 @@
 .card {
   --card-width: 210px;
   --card-height: 290px;
-  font-family: "Exo", sans-serif;
-  background-image: url("/logos/pokeball-03.svg");
+
+  overflow: hidden;
+  
+  /* background-image: url("/logos/pokeball-03.svg");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center center; */
   padding: 24px;
   width: var(--card-width);
   height: var(--card-height);
-  background-color: rgba(255, 255, 255, 0.6);
+  /* background-color: rgba(255, 255, 255, 0.6); */
+  background: linear-gradient(
+      162.54deg,
+      rgba(255, 255, 255, 0.44) -0.01%,
+      rgba(0, 0, 0, 0) 92.59%
+    ),
+    linear-gradient(
+      186.44deg,
+      rgba(47, 47, 47, 0.92) -4.01%,
+      rgba(38, 38, 38, 0.92) 27.5%,
+      rgba(27, 27, 27, 0.92) 84.66%,
+      rgba(47, 47, 47, 0.92) 108.7%
+    );
   border-radius: 16px;
   box-shadow: 1px 1px 4px 4px rgba(31, 31, 31, 0.13);
 }
 
 .card:hover {
   animation: buzz 0.5s infinite alternate;
+}
+
+.pokeball {
+  position: absolute;
+  top: -62%;
+  right: -125%;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+.card:hover .pokeball {
+  opacity: 0.3;
 }
 
 .entry {
@@ -70,6 +96,7 @@
 
 .typeLogos .icon {
   display: flex;
+  z-index: 1;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
@@ -79,14 +106,15 @@
 }
 
 .entry .img {
+  z-index: 2;
   animation: popIn 0.9s ease-in-out;
 }
 
 .info {
   display: flex;
   justify-content: space-between;
+  z-index: 3;
   width: 100%;
   animation: fadeIn 0.9s ease-in-out;
+  color: #DADADA;
 }
-
-
