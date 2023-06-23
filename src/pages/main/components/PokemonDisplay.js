@@ -63,15 +63,7 @@ export default class PokemonDisplay extends Component {
         this.setState(() => {
           const { species, id, types } = response.data;
           const image = imageLink + id.toString() + ".png";
-          let index = id.toString();
-
-          if (index.length < 4) {
-            const length = index.length;
-            for (let i = 0; i < 4 - length; i++) {
-              index = "0" + index;
-            }
-          }
-
+          let index = "0".repeat(4 - id.toString().length) + id.toString();
           return {
             name: species.name,
             index,
@@ -92,39 +84,41 @@ export default class PokemonDisplay extends Component {
     return (
       <>
         <li className={styles.card}>
-          {loaded && (
-            <Link className={styles.entry} href={"/pokemon/" + name}>
-              <div className={styles.typeLogos}>
-                {types.map((type) => {
-                  const { name } = type.type;
-                  return (
-                    <ShowType
-                      key={`${pokemonName} : ${name}`}
-                      typeName={name}
-                    />
-                  );
-                })}
-              </div>
-              <Image
-                className={styles.img}
-                alt={pokemonName}
-                src={imageURL}
-                width={size}
-                height={size}
-              />
-              <Image
-                className={styles.pokeball}
-                alt="pokeball"
-                src="/logos/pokeball-03.svg"
-                width={920}
-                height={920}
-              />
-              <div className={styles.info}>
-                <h4>{`No. ${index}`}</h4>
-                <h3>{pokemonName}</h3>
-              </div>
-            </Link>
-          )}
+          <Link className={styles.entry} href={"/pokemon/" + name}>
+            {loaded && (
+              <>
+                <div className={styles.typeLogos}>
+                  {types.map((type) => {
+                    const { name } = type.type;
+                    return (
+                      <ShowType
+                        key={`${pokemonName} : ${name}`}
+                        typeName={name}
+                      />
+                    );
+                  })}
+                </div>
+                <Image
+                  className={styles.img}
+                  alt={pokemonName}
+                  src={imageURL}
+                  width={size}
+                  height={size}
+                />
+                <div className={styles.info}>
+                  <h4>{`No. ${index}`}</h4>
+                  <h3>{pokemonName}</h3>
+                </div>
+              </>
+            )}
+            <Image
+              className={styles.pokeball}
+              alt="pokeball"
+              src="/logos/pokeball-03.svg"
+              width={920}
+              height={920}
+            />
+          </Link>
         </li>
       </>
     );

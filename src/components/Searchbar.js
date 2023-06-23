@@ -21,7 +21,7 @@ const Searchbar = ({ handleFilter }) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      handleFilter(searchTerm);
+      handleFilter(searchTerm.replace(" ", "-"));
     }
   };
 

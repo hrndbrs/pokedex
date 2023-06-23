@@ -1,11 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  --type-logo-shadow: 30px;
+  --type-logo-shadow: 45px;
 }
 
 html {
-  /* background: linear-gradient(
+  background: linear-gradient(
       216.34deg,
       rgba(0, 0, 0, 0) -5.08%,
       rgba(141, 153, 175, 0.05) 77.77%
@@ -29,9 +29,9 @@ html {
       307.36deg,
       rgba(222, 58, 93, 0.54) -2.17%,
       rgba(217, 246, 250, 0.0702) 76.82%
-    ); */
+    );
   font-family: "Exo", sans-serif;
-  background: linear-gradient(
+  /* background: linear-gradient(
       7.34deg,
       rgba(0, 0, 0, 0) 61.72%,
       rgba(141, 153, 175, 0.05) 89.2%
@@ -48,7 +48,25 @@ html {
       rgba(141, 153, 175, 0) 98.22%,
       #a6a6a6 115.42%
     ),
-    linear-gradient(17.15deg, #676767 -23.04%, rgba(211, 228, 231, 0) 29.01%);
+    linear-gradient(17.15deg, #676767 -23.04%, rgba(211, 228, 231, 0) 29.01%); */
+ 
+    /* background: linear-gradient(
+      180deg,
+      rgba(129, 211, 230, 0.94) 18.66%,
+      rgba(255, 255, 255, 0.5076) 100%
+    ),
+    linear-gradient(
+      9.9deg,
+      rgba(236, 241, 244, 0) 51.04%,
+      rgba(211, 239, 250, 0.81) 97.78%
+    ),
+    linear-gradient(
+      187.46deg,
+      rgba(255, 255, 255, 0.6035) 27.23%,
+      rgba(138, 213, 231, 0.71) 79.38%,
+      rgba(176, 230, 241, 0.71) 103.62%
+    ); */
+
   background-repeat: no-repeat;
   background-attachment: fixed;
 }

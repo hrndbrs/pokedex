@@ -30,19 +30,23 @@
   }
 }
 
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .card {
   --card-width: 210px;
   --card-height: 290px;
 
   overflow: hidden;
-  
-  /* background-image: url("/logos/pokeball-03.svg");
-  background-repeat: no-repeat;
-  background-position: center center; */
   padding: 24px;
   width: var(--card-width);
   height: var(--card-height);
-  /* background-color: rgba(255, 255, 255, 0.6); */
   background: linear-gradient(
       162.54deg,
       rgba(255, 255, 255, 0.44) -0.01%,
@@ -72,7 +76,8 @@
 }
 
 .card:hover .pokeball {
-  opacity: 0.3;
+  opacity: 0.28;
+  animation: rotate 3s linear infinite;
 }
 
 .entry {
@@ -116,5 +121,5 @@
   z-index: 3;
   width: 100%;
   animation: fadeIn 0.9s ease-in-out;
-  color: #DADADA;
+  color: #ffffff;
 }

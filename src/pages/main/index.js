@@ -12,7 +12,7 @@ export const Context = React.createContext();
 
 const Main = () => {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState(data);
   const [currentPage, setCurrentPage] = useState(1);
 
   const recordsPerPage = 8;
